@@ -1,0 +1,56 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: FreeMono, monospace;
+  background-color: #242424;      /* fundo preto */
+  color: #fff;                 /* texto branco */
+  line-height: 1.6;
+  padding-top: 60px;
+}
+
+/* Títulos em roxo */
+h1, h2, h3, h4, h5, h6 {
+  color: #aa7fff;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #675292; /* tom mais escuro */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+.navbar a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #aa7fff;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  background-color: #111;
+  color: #ccc;
+  border-top: 1px solid #222;
+}

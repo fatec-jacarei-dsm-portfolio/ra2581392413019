@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projetos</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h2 {
+      margin: 2rem 0 1rem;
+      font-size: 1.8rem;
+      color: #a259ff;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .projeto {
+      background-color: #111;
+      border: 1px solid #333;
+      border-radius: 8px;
+      width: 300px;
+      height: auto;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s;
+    }
+
+    .projeto:hover {
+      transform: scale(1.02);
+      border-color: #a259ff;
+    }
+
+    .projeto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .projeto h3 {
+      margin: 0;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      color: #a259ff;
+      background-color: #000;
+      text-align: center;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .modal-conteudo {
+      background-color: #111;
+      color: #ccc;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 700px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 0 20px #a259ff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .btn-fechar {
+      background-color: #a259ff;
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      align-self: flex-end;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .btn-fechar:hover {
+      background-color: #7d33cc;
+    }
+
+    .imagem-centralizada {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .imagem-centralizada img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      /* Espaço entre as imagens */
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <a href="index.html">Sobre Mim</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="outras-informacoes.html">Outras Informações</a>
+  </nav>
+
+  <main class="container">
+    <section>
+      <h2>Projetos Acadêmicos - FATEC</h2>
+      <div class="grid">
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/scrum1.png" alt="Projeto Acadêmico 1">
+          <h3>Plataforma de Ensino SCRUM - Primeiro Semestre</h3>
+          <div class="descricao" style="display: none;">
+            <h3>Desenvolvimento de uma Plataforma Web para Ensino do Método Scrum.</h3>
+            <br>
+            TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.
+            <br><br>
+            Com o intuito de desenvolver uma aplicação Web usando metodologias ágeis a FATEC DE JACAREÍ propôs aos alunos do 1° semestre do curso de Desenvolvimento de Software Multiplataforma (DSM), o desenvolvimento de um curso online sobre o metodo ágil Scrum, que define-se como um framework de colaboração de equipe ágil comumente usado.
+            <br><br>
+            No projeto fui responsável pelo UX/UI, prototipação e estruturação da navegação no Figma, além de colaborar com a documentação e apoiar também no desenvolvimento, principalmente no front-end.
+            <br><br>
+            <div class="imagem-centralizada">
+              <img src="img/scrum1.png" alt="foto1">
+              <img src="img/scrum2.png" alt="foto2">
+            </div>
+            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/DSM-1">GitHub</a></p>
+          </div>
+        </div>
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/nutri1.png" alt="Projeto Acadêmico 2">
+          <h3>Contador de Calorias - Segundo Semestre</h3>
+          <div class="descricao" style="display: none;">
+            <h3>Desenvolvimento de uma Plataforma Web para Cálculo Nutricional e Recomendação de Dietas Personalizadas.</h3>
+            <br>
+            NutriWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.
+            <br><br>
+            Este projeto visa desenvolver uma aplicação web utilizando metodologias ágeis (Scrum) para calcular calorias e sugerir dietas personalizadas, destinada aos alunos do 2° semestre de DSM da FATEC Jacareí. A plataforma, construída com React, TypeScript, HTML/CSS e PostgreSQL, permitirá aos usuários monitorar sua ingestão calórica e receber recomendações alimentares baseadas em seus objetivos. O design será prototipado no Figma, o versionamento feito via Git/GitHub, e a documentação detalhada no README.md, integrando práticas de desenvolvimento ágil e tecnologias modernas para criar uma solução funcional e educativa.
+            <br><br>
+            Atuei na concepção da interface, prototipação e experiência de usuário no Figma, contribuí com parte do front-end e auxiliei na documentação e organização da apresentação da solução.
+            <br><br>
+            <div class="imagem-centralizada">
+              <img src="img/nutri1.png" alt="foto1">
+              <img src="img/nutri2.png" alt="foto2">
+            </div>
+            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/DSM-2">GitHub</a></p>
+          </div>
+        </div>
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/winds1.png" alt="Projeto Acadêmico 3">
+          <h3>Wizard Winds - Terceiro Semestre</h3>
+          <div class="descricao" style="display: none;">
+            <h3>Plataforma Web para Monitoramento Meteorológico do Lago de Furnas: Visualização de Dados e Alertas em Tempo Real.</h3>
+            <br>
+            HalfTech: Raquel Massae (eu), Pollyana Roberta e Felipe Corrêa.
+            <br><br>
+            Desenvolvido no âmbito da disciplina de Gestão Ágil de Projetos de Software da FATEC Jacareí, este projeto aplica a Aprendizagem Baseada em Projetos (ABP) para criar uma plataforma web que disponibiliza dados meteorológicos das três estações instaladas no Lago de Furnas, região afetada por ventos extremos que comprometem a navegação e causam impactos socioeconômicos. A solução oferecerá visualização gráfica interativa, histórico em tabelas, comparação entre estações, exportação de dados em CSV e emissão de alertas de risco, culminando em uma interface responsiva que democratiza o acesso a informações climáticas críticas para a população local.
+            <br><br>
+            Atuei como Product Owner, garantindo alinhamento do produto com os requisitos. Também fui responsável pelo UX/UI, prototipação e fluxos de navegação no Figma, além de apoiar no desenvolvimento e documentação.
+            <br><br>
+            <div class="imagem-centralizada">
+              <img src="img/winds1.png" alt="foto1">
+              <img src="img/winds2.png" alt="foto2">
+            </div>
+            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/HALF-TECH---DSM-3">GitHub</a></p>
+          </div>
+        </div>
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/micro2.jpg" alt="Projeto Acadêmico 4">
+          <h3>Imagens de Microscópios Ópticos - Quarto Semestre</h3>
+          <div class="descricao" style="display: none;">
+            <h3>Sistema para Coleta de Imagens de Microscópios Ópticos e Visualização Mobile/Web.</h3>
+            <br>
+            TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.
+            <br><br>
+            O sistema permite coletar imagens e vídeos de microscópios ópticos por meio de uma câmera digital acoplada, transmitir o fluxo de vídeo em tempo real via Wi‑Fi para um servidor em nuvem, e disponibilizar aplicativo mobile e interface web para visualização e armazenamento de snapshots.
+O projeto atende aos microscópios disponíveis na Fatec Jacareí e visa melhorar a experiência didática dos alunos.
+            <br><br>
+            Trabalhei na criação do design da interface e navegação no Figma, contribuindo também com partes do front-end e auxiliando na documentação do projeto.
+            <br><br>
+            <div class="imagem-centralizada">
+              <img src="img/micro1.jpg" alt="foto1">
+              <img src="img/micro3.jpg" alt="foto2">
+              <img src="img/micro2.jpg" alt="foto3">
+            </div>
+            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/TECH-WIZARDS-DSM-4">GitHub</a></p>
+          </div>
+        </div>
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/projeto-futuro-quinto.png" alt="Projeto Acadêmico 5">
+          <h3>Projeto Futuro - Quinto Semestre</h3>
+        </div>
+
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/projeto-futuro-sexto.png" alt="Projeto Acadêmico 6">
+          <h3>Projeto Futuro - Sexto Semestre</h3>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section>
+      <h2>Projetos Acadêmicos - Iniciação Científica</h2>
+      <div class="grid">
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/profissional2.png" alt="Projeto Profissional 1">
+          <h3>Iniciação Científica - Redes Neurais Convolucionais na detecção de objetos</h3>
+          <div class="descricao" style="display: none;">
+            <h3>Redes Neurais Convolucionais na detecção de objetos com uso de imagens obtidas por Drones.</h3>
+            <br>
+            Iniciação Científica, IFSP e IEAV.
+            <br>
+            <br>
+            Orientador e professor: Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.
+            <br>
+            <br>
+            O principal objetivo deste projeto de Iniciação Científica foi apresentar uma proposta para o desenvolvimento de um protótipo de dirigível capaz de operar em ambiente Indoor e carregar diferentes tipos de sensores e atuadores. Os resultados apresentados neste relatório foram divididos em oito módulos para melhor compreensão, são eles: busca bibliográfica, levantamento dos componentes eletrônicos, orçamento, pesquisas individuais de cada componente, testes com o simulador TINKERCAD, construção da câmara a gás, pesquisa de mercado do gás hélio e o desenho da gôndola. Os resultados deste estudo consistem em alcançar o entendimento sobre a funcionalidade de todos os componentes necessários para a montagem do dirigível, através da realização de pesquisas e testes; a estimativa de seus valores no mercado; e a realização da montagem da câmara a gás, o desenho da gôndola, e o levantamento do gás hélio.
+            <br><br>
+            <div class="imagem-centralizada">
+              <img src="img/profissional1.png" alt="foto1">
+              <img src="img/profissional2.png" alt="foto2">
+            </div>
+            <p>Clique no link para abrir o PDF: <a href="pdf/redes.pdf" target="_blank">Abrir PDF</a></p>
+          </div>
+        </div>
+
+        <div class="projeto" onclick="toggleDescricao(this)">
+          <img src="img/profissional4.png" alt="Projeto Profissional 2">
+          <h3>Iniciação Científica - Estudo de um protótipo de Dirigível</h3>
+          <div class="descricao" style="display: none;">
+            <h3>Estudo de um protótipo de dirigível de baixo custo com uso de arduino para emprego em ambientes indoor.</h3>
+            <br>
+            Iniciação Científica pelo CNPq/WASH.
+            <br>
+            <br>
+            Orientador e professor: Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.
+            <br>
+            <br>
+            O objetivo deste projeto de iniciação científica é estudar alternativas para desenvolvimento de um protótipo de dirigível capaz de operar em ambiente Indoor e carregar diferentes tipos de sensores e atuadores. Os resultados apresentados neste relatório foram divididos em quatro módulos para melhor compreensão, são eles: busca bibliográfica, levantamento dos componentes eletrônicos, orçamento e pesquisas individuais de cada componente. Os resultados desse estudo consistem em: entendimento aprofundado sobre a funcionalidade de todos os componentes necessários para a montagem do dirigível, através da realização de pesquisas e testes; e a estimativa de seus valores no mercado.
+            <br><br>
+            <div class="imagem-centralizada">
+              <img src="img/profissional3.png" alt="foto1">
+              <img src="img/profissional4.png" alt="foto2">
+            </div>
+            <p>Clique no link para abrir o PDF: <a href="pdf/arduino.pdf" target="_blank">Abrir PDF</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Raquel Massae
+  </footer>
+
+  <!-- Modal de descrição -->
+  <div id="modalDescricao" class="modal">
+    <div class="modal-conteudo">
+      <div id="conteudoDescricao"></div>
+      <button class="btn-fechar" onclick="fecharModal()">✖</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleDescricao(card) {
+      const descricao = card.querySelector('.descricao').innerHTML;
+      document.getElementById('conteudoDescricao').innerHTML = descricao;
+      document.getElementById('modalDescricao').style.display = 'flex';
+    }
+
+    function fecharModal() {
+      document.getElementById('modalDescricao').style.display = 'none';
+    }
+  </script>
+
+</body>
+
+</html>
