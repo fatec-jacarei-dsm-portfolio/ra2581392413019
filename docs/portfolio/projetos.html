@@ -4,312 +4,470 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projetos</title>
+  <meta name="description" content="Projetos acadêmicos de Raquel Massae na Fatec Jacareí e em iniciação científica." />
+  <title>Projetos | Raquel Massae</title>
+  <link rel="preload" href="fonts/young-serif.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 2rem;
-    }
-
-    h2 {
-      margin: 2rem 0 1rem;
-      font-size: 1.8rem;
-      color: #a259ff;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-      justify-items: center;
-    }
-
-    .projeto {
-      background-color: #111;
-      border: 1px solid #333;
-      border-radius: 8px;
-      width: 300px;
-      height: auto;
-      overflow: hidden;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s;
-    }
-
-    .projeto:hover {
-      transform: scale(1.02);
-      border-color: #a259ff;
-    }
-
-    .projeto img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 5px 5px 0 0;
-    }
-
-    .projeto h3 {
-      margin: 0;
-      padding: 0.8rem;
-      font-size: 1.1rem;
-      color: #a259ff;
-      background-color: #000;
-      text-align: center;
-    }
-
-    /* Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .modal-conteudo {
-      background-color: #111;
-      color: #ccc;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 700px;
-      width: 90%;
-      max-height: 80vh;
-      overflow-y: auto;
-      position: relative;
-      box-shadow: 0 0 20px #a259ff;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-
-    .btn-fechar {
-      background-color: #a259ff;
-      color: white;
-      border: none;
-      font-size: 1.2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      align-self: flex-end;
-      margin-bottom: 1rem;
-      transition: background-color 0.3s;
-    }
-
-    .btn-fechar:hover {
-      background-color: #7d33cc;
-    }
-
-    .imagem-centralizada {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .imagem-centralizada img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      /* Espaço entre as imagens */
-    }
-  </style>
+  <link rel="stylesheet" href="css/projetos.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="navbar">
-    <a href="index.html">Sobre Mim</a>
-    <a href="projetos.html">Projetos</a>
-    <a href="outras-informacoes.html">Outras Informações</a>
-  </nav>
+  <!-- Filtro que dá as bordas irregulares de aquarela -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="aquarela" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="4" result="ruido" />
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="70" result="borda" />
+      <feGaussianBlur in="borda" stdDeviation="1.2" />
+    </filter>
+  </svg>
 
-  <main class="container">
-    <section>
-      <h2>Projetos Acadêmicos - FATEC</h2>
-      <div class="grid">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Raquel Massae</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html">Sobre mim</a>
+        <a href="projetos.html" aria-current="page">Projetos</a>
+        <a href="outras-informacoes.html">Outras informações</a>
+      </nav>
+    </div>
+  </header>
 
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/scrum1.png" alt="Projeto Acadêmico 1">
-          <h3>Plataforma de Ensino SCRUM - Primeiro Semestre</h3>
-          <div class="descricao" style="display: none;">
-            <h3>Desenvolvimento de uma Plataforma Web para Ensino do Método Scrum.</h3>
-            <br>
-            TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.
-            <br><br>
-            Com o intuito de desenvolver uma aplicação Web usando metodologias ágeis a FATEC DE JACAREÍ propôs aos alunos do 1° semestre do curso de Desenvolvimento de Software Multiplataforma (DSM), o desenvolvimento de um curso online sobre o metodo ágil Scrum, que define-se como um framework de colaboração de equipe ágil comumente usado.
-            <br><br>
-            No projeto fui responsável pelo UX/UI, prototipação e estruturação da navegação no Figma, além de colaborar com a documentação e apoiar também no desenvolvimento, principalmente no front-end.
-            <br><br>
-            <div class="imagem-centralizada">
-              <img src="img/scrum1.png" alt="foto1">
-              <img src="img/scrum2.png" alt="foto2">
-            </div>
-            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/DSM-1">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/nutri1.png" alt="Projeto Acadêmico 2">
-          <h3>Contador de Calorias - Segundo Semestre</h3>
-          <div class="descricao" style="display: none;">
-            <h3>Desenvolvimento de uma Plataforma Web para Cálculo Nutricional e Recomendação de Dietas Personalizadas.</h3>
-            <br>
-            NutriWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.
-            <br><br>
-            Este projeto visa desenvolver uma aplicação web utilizando metodologias ágeis (Scrum) para calcular calorias e sugerir dietas personalizadas, destinada aos alunos do 2° semestre de DSM da FATEC Jacareí. A plataforma, construída com React, TypeScript, HTML/CSS e PostgreSQL, permitirá aos usuários monitorar sua ingestão calórica e receber recomendações alimentares baseadas em seus objetivos. O design será prototipado no Figma, o versionamento feito via Git/GitHub, e a documentação detalhada no README.md, integrando práticas de desenvolvimento ágil e tecnologias modernas para criar uma solução funcional e educativa.
-            <br><br>
-            Atuei na concepção da interface, prototipação e experiência de usuário no Figma, contribuí com parte do front-end e auxiliei na documentação e organização da apresentação da solução.
-            <br><br>
-            <div class="imagem-centralizada">
-              <img src="img/nutri1.png" alt="foto1">
-              <img src="img/nutri2.png" alt="foto2">
-            </div>
-            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/DSM-2">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/winds1.png" alt="Projeto Acadêmico 3">
-          <h3>Wizard Winds - Terceiro Semestre</h3>
-          <div class="descricao" style="display: none;">
-            <h3>Plataforma Web para Monitoramento Meteorológico do Lago de Furnas: Visualização de Dados e Alertas em Tempo Real.</h3>
-            <br>
-            HalfTech: Raquel Massae (eu), Pollyana Roberta e Felipe Corrêa.
-            <br><br>
-            Desenvolvido no âmbito da disciplina de Gestão Ágil de Projetos de Software da FATEC Jacareí, este projeto aplica a Aprendizagem Baseada em Projetos (ABP) para criar uma plataforma web que disponibiliza dados meteorológicos das três estações instaladas no Lago de Furnas, região afetada por ventos extremos que comprometem a navegação e causam impactos socioeconômicos. A solução oferecerá visualização gráfica interativa, histórico em tabelas, comparação entre estações, exportação de dados em CSV e emissão de alertas de risco, culminando em uma interface responsiva que democratiza o acesso a informações climáticas críticas para a população local.
-            <br><br>
-            Atuei como Product Owner, garantindo alinhamento do produto com os requisitos. Também fui responsável pelo UX/UI, prototipação e fluxos de navegação no Figma, além de apoiar no desenvolvimento e documentação.
-            <br><br>
-            <div class="imagem-centralizada">
-              <img src="img/winds1.png" alt="foto1">
-              <img src="img/winds2.png" alt="foto2">
-            </div>
-            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/HALF-TECH---DSM-3">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/micro2.jpg" alt="Projeto Acadêmico 4">
-          <h3>Imagens de Microscópios Ópticos - Quarto Semestre</h3>
-          <div class="descricao" style="display: none;">
-            <h3>Sistema para Coleta de Imagens de Microscópios Ópticos e Visualização Mobile/Web.</h3>
-            <br>
-            TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.
-            <br><br>
-            O sistema permite coletar imagens e vídeos de microscópios ópticos por meio de uma câmera digital acoplada, transmitir o fluxo de vídeo em tempo real via Wi‑Fi para um servidor em nuvem, e disponibilizar aplicativo mobile e interface web para visualização e armazenamento de snapshots.
-O projeto atende aos microscópios disponíveis na Fatec Jacareí e visa melhorar a experiência didática dos alunos.
-            <br><br>
-            Trabalhei na criação do design da interface e navegação no Figma, contribuindo também com partes do front-end e auxiliando na documentação do projeto.
-            <br><br>
-            <div class="imagem-centralizada">
-              <img src="img/micro1.jpg" alt="foto1">
-              <img src="img/micro3.jpg" alt="foto2">
-              <img src="img/micro2.jpg" alt="foto3">
-            </div>
-            <p>Clique no link para acessar o GitHub: <a href="https://github.com/TechWizards-Tech/TECH-WIZARDS-DSM-4">GitHub</a></p>
-          </div>
-        </div>
-
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/projeto-futuro-quinto.png" alt="Projeto Acadêmico 5">
-          <h3>Projeto Futuro - Quinto Semestre</h3>
-        </div>
-
-
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/projeto-futuro-sexto.png" alt="Projeto Acadêmico 6">
-          <h3>Projeto Futuro - Sexto Semestre</h3>
-        </div>
-
-      </div>
+  <main id="conteudo">
+    <section class="page-head wrap">
+      <div class="bloom" aria-hidden="true"></div>
+      <h1>Projetos</h1>
+      <p>Da prototipação no Figma ao código: os projetos que desenvolvi em equipe na Fatec e as pesquisas de iniciação científica.</p>
+      <nav class="jump" aria-label="Seções da página">
+        <a class="btn" href="#fatec">Acadêmicos: Fatec</a>
+        <a class="btn" href="#iniciacao">Acadêmicos: iniciação científica</a>
+      </nav>
     </section>
 
+    <!-- ===================== FATEC ===================== -->
+    <section class="section wrap" id="fatec" aria-labelledby="fatec-titulo">
+      <div class="section-head">
+        <h2 id="fatec-titulo">Projetos integradores na Fatec</h2>
+        <p>Aprendizagem Baseada em Projetos (ABP) do curso de Desenvolvimento de Software Multiplataforma, do mais recente ao primeiro.</p>
+      </div>
 
-    <section>
-      <h2>Projetos Acadêmicos - Iniciação Científica</h2>
-      <div class="grid">
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/profissional2.png" alt="Projeto Profissional 1">
-          <h3>Iniciação Científica - Redes Neurais Convolucionais na detecção de objetos</h3>
-          <div class="descricao" style="display: none;">
-            <h3>Redes Neurais Convolucionais na detecção de objetos com uso de imagens obtidas por Drones.</h3>
-            <br>
-            Iniciação Científica, IFSP e IEAV.
-            <br>
-            <br>
-            Orientador e professor: Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.
-            <br>
-            <br>
-            O principal objetivo deste projeto de Iniciação Científica foi apresentar uma proposta para o desenvolvimento de um protótipo de dirigível capaz de operar em ambiente Indoor e carregar diferentes tipos de sensores e atuadores. Os resultados apresentados neste relatório foram divididos em oito módulos para melhor compreensão, são eles: busca bibliográfica, levantamento dos componentes eletrônicos, orçamento, pesquisas individuais de cada componente, testes com o simulador TINKERCAD, construção da câmara a gás, pesquisa de mercado do gás hélio e o desenho da gôndola. Os resultados deste estudo consistem em alcançar o entendimento sobre a funcionalidade de todos os componentes necessários para a montagem do dirigível, através da realização de pesquisas e testes; a estimativa de seus valores no mercado; e a realização da montagem da câmara a gás, o desenho da gôndola, e o levantamento do gás hélio.
-            <br><br>
-            <div class="imagem-centralizada">
-              <img src="img/profissional1.png" alt="foto1">
-              <img src="img/profissional2.png" alt="foto2">
-            </div>
-            <p>Clique no link para abrir o PDF: <a href="pdf/redes.pdf" target="_blank">Abrir PDF</a></p>
-          </div>
-        </div>
+      <ol class="timeline">
 
-        <div class="projeto" onclick="toggleDescricao(this)">
-          <img src="img/profissional4.png" alt="Projeto Profissional 2">
-          <h3>Iniciação Científica - Estudo de um protótipo de Dirigível</h3>
-          <div class="descricao" style="display: none;">
-            <h3>Estudo de um protótipo de dirigível de baixo custo com uso de arduino para emprego em ambientes indoor.</h3>
-            <br>
-            Iniciação Científica pelo CNPq/WASH.
-            <br>
-            <br>
-            Orientador e professor: Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.
-            <br>
-            <br>
-            O objetivo deste projeto de iniciação científica é estudar alternativas para desenvolvimento de um protótipo de dirigível capaz de operar em ambiente Indoor e carregar diferentes tipos de sensores e atuadores. Os resultados apresentados neste relatório foram divididos em quatro módulos para melhor compreensão, são eles: busca bibliográfica, levantamento dos componentes eletrônicos, orçamento e pesquisas individuais de cada componente. Os resultados desse estudo consistem em: entendimento aprofundado sobre a funcionalidade de todos os componentes necessários para a montagem do dirigível, através da realização de pesquisas e testes; e a estimativa de seus valores no mercado.
-            <br><br>
-            <div class="imagem-centralizada">
-              <img src="img/profissional3.png" alt="foto1">
-              <img src="img/profissional4.png" alt="foto2">
-            </div>
-            <p>Clique no link para abrir o PDF: <a href="pdf/arduino.pdf" target="_blank">Abrir PDF</a></p>
+        <!-- 6DSM -->
+        <li class="entry is-upcoming">
+          <div class="when">
+            <span class="when-code">6DSM</span>
+            <span class="when-term">2º Sem. 2026</span>
+            <span class="status is-muted">Em andamento</span>
           </div>
-        </div>
+          <div class="upcoming">
+            <h3>Projeto do sexto semestre</h3>
+            <p>Em desenvolvimento neste semestre. Os detalhes entram aqui assim que o projeto avançar.</p>
+          </div>
+        </li>
+
+        <!-- 5DSM -->
+        <li class="entry is-latest">
+          <div class="when">
+            <span class="when-code">5DSM</span>
+            <span class="when-term">1º Sem. 2026</span>
+            <span class="status">Mais recente</span>
+          </div>
+          <article class="project" data-projeto="wizardvision">
+            <button class="project-shot" type="button" data-abrir="wizardvision" aria-label="Ver detalhes do WizardVision">
+              <img src="img/wizard1.jpg" alt="Dashboard do WizardVision com estatísticas do elenco e cards de atletas" width="1440" height="900" />
+            </button>
+            <div class="project-body">
+              <h3>WizardVision</h3>
+              <p class="project-desc">Sistema de análise de desempenho físico de atletas de futebol com Inteligência Artificial: identifica perfis de jogadores, detecta quedas de rendimento e emite alertas para a comissão técnica.</p>
+              <div class="contrib">
+                <strong>Minha contribuição</strong>
+                Desenvolvedora full stack: telas de login e cadastro, grid de atletas com busca e filtros, integração das predições de IA com a API Node.js e paginação no front-end e no back-end.
+              </div>
+              <ul class="tags" aria-label="Tecnologias">
+                <li>React</li><li>Vite</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>Python</li><li>FastAPI</li><li>Machine Learning</li><li>JWT</li>
+              </ul>
+              <div class="actions">
+                <button class="btn btn-primary" type="button" data-abrir="wizardvision">Ver detalhes</button>
+                <a class="btn" href="https://github.com/TechWizards-Tech/wizard-vision" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- 4DSM -->
+        <li class="entry">
+          <div class="when">
+            <span class="when-code">4DSM</span>
+            <span class="when-term">2º Sem. 2025</span>
+          </div>
+          <article class="project">
+            <button class="project-shot" type="button" data-abrir="microscopios" aria-label="Ver detalhes do projeto de microscópios">
+              <img src="img/micro2.jpg" alt="Sistema de imagens de microscópios ópticos" loading="lazy" />
+            </button>
+            <div class="project-body">
+              <h3>Imagens de Microscópios Ópticos</h3>
+              <p class="project-desc">Coleta de imagens de microscópios com transmissão ao vivo via Wi‑Fi e visualização em aplicativo mobile e web.</p>
+              <div class="contrib">
+                <strong>Minha contribuição</strong>
+                Design da interface e da navegação no Figma, partes do front-end e documentação.
+              </div>
+              <ul class="tags" aria-label="Tecnologias">
+                <li>React</li><li>React Native</li><li>Python</li><li>Flask</li><li>Raspberry Pi</li><li>Figma</li>
+              </ul>
+              <div class="actions">
+                <button class="btn btn-primary" type="button" data-abrir="microscopios">Ver detalhes</button>
+                <a class="btn" href="https://github.com/TechWizards-Tech/TECH-WIZARDS-DSM-4" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- 3DSM -->
+        <li class="entry">
+          <div class="when">
+            <span class="when-code">3DSM</span>
+            <span class="when-term">1º Sem. 2025</span>
+          </div>
+          <article class="project">
+            <button class="project-shot" type="button" data-abrir="winds" aria-label="Ver detalhes do Wizard Winds">
+              <img src="img/winds1.png" alt="Tela do Wizard Winds" loading="lazy" />
+            </button>
+            <div class="project-body">
+              <h3>Wizard Winds</h3>
+              <p class="project-desc">Monitoramento meteorológico do Lago de Furnas com gráficos interativos, histórico, comparação entre estações e alertas de risco.</p>
+              <div class="contrib">
+                <strong>Minha contribuição</strong>
+                Product Owner, UX/UI e fluxos de navegação no Figma, com apoio no desenvolvimento e na documentação.
+              </div>
+              <ul class="tags" aria-label="Tecnologias">
+                <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Figma</li>
+              </ul>
+              <div class="actions">
+                <button class="btn btn-primary" type="button" data-abrir="winds">Ver detalhes</button>
+                <a class="btn" href="https://github.com/TechWizards-Tech/HALF-TECH---DSM-3" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- 2DSM -->
+        <li class="entry">
+          <div class="when">
+            <span class="when-code">2DSM</span>
+            <span class="when-term">2º Sem. 2024</span>
+          </div>
+          <article class="project">
+            <button class="project-shot" type="button" data-abrir="nutri" aria-label="Ver detalhes do contador de calorias">
+              <img src="img/nutri1.png" alt="Tela do contador de calorias NutriWizards" loading="lazy" />
+            </button>
+            <div class="project-body">
+              <h3>Contador de Calorias</h3>
+              <p class="project-desc">Plataforma que calcula calorias e recomenda dietas personalizadas conforme os objetivos de cada usuário.</p>
+              <div class="contrib">
+                <strong>Minha contribuição</strong>
+                Interface e experiência do usuário no Figma, parte do front-end, documentação e apresentação da solução.
+              </div>
+              <ul class="tags" aria-label="Tecnologias">
+                <li>React</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>PostgreSQL</li><li>Figma</li>
+              </ul>
+              <div class="actions">
+                <button class="btn btn-primary" type="button" data-abrir="nutri">Ver detalhes</button>
+                <a class="btn" href="https://github.com/TechWizards-Tech/DSM-2" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+        </li>
+
+        <!-- 1DSM -->
+        <li class="entry">
+          <div class="when">
+            <span class="when-code">1DSM</span>
+            <span class="when-term">1º Sem. 2024</span>
+          </div>
+          <article class="project">
+            <button class="project-shot" type="button" data-abrir="scrum" aria-label="Ver detalhes da plataforma de ensino Scrum">
+              <img src="img/scrum1.png" alt="Tela da plataforma de ensino Scrum" loading="lazy" />
+            </button>
+            <div class="project-body">
+              <h3>Plataforma de Ensino Scrum</h3>
+              <p class="project-desc">Curso online sobre o framework ágil Scrum, construído aplicando o próprio método.</p>
+              <div class="contrib">
+                <strong>Minha contribuição</strong>
+                UX/UI, prototipação e estrutura de navegação no Figma, com apoio no front-end e na documentação.
+              </div>
+              <ul class="tags" aria-label="Tecnologias">
+                <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Node.js</li><li>PostgreSQL</li><li>Figma</li>
+              </ul>
+              <div class="actions">
+                <button class="btn btn-primary" type="button" data-abrir="scrum">Ver detalhes</button>
+                <a class="btn" href="https://github.com/TechWizards-Tech/DSM-1" target="_blank" rel="noopener">Repositório no GitHub</a>
+              </div>
+            </div>
+          </article>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== INICIAÇÃO CIENTÍFICA ===================== -->
+    <section class="section wrap" id="iniciacao" aria-labelledby="ic-titulo">
+      <div class="section-head">
+        <h2 id="ic-titulo">Iniciação científica</h2>
+        <p>Pesquisas orientadas por Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.</p>
+      </div>
+
+      <div class="research">
+        <article class="project">
+          <button class="project-shot" type="button" data-abrir="cnn" aria-label="Ver detalhes da pesquisa sobre redes neurais">
+            <img src="img/profissional2.png" alt="Material da pesquisa sobre redes neurais convolucionais" loading="lazy" />
+          </button>
+          <div class="project-body">
+            <p class="org">IFSP e IEAV</p>
+            <h3>Redes Neurais Convolucionais na detecção de objetos</h3>
+            <p class="project-desc">Detecção de objetos com imagens obtidas por drones.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>Redes neurais</li><li>Tinkercad</li>
+            </ul>
+            <div class="actions">
+              <button class="btn btn-primary" type="button" data-abrir="cnn">Ver detalhes</button>
+              <a class="btn" href="pdf/redes.pdf" target="_blank" rel="noopener">Relatório em PDF</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <button class="project-shot" type="button" data-abrir="dirigivel" aria-label="Ver detalhes da pesquisa sobre o dirigível">
+            <img src="img/profissional4.png" alt="Material da pesquisa sobre o protótipo de dirigível" loading="lazy" />
+          </button>
+          <div class="project-body">
+            <p class="org">CNPq/WASH</p>
+            <h3>Estudo de um protótipo de dirigível</h3>
+            <p class="project-desc">Dirigível de baixo custo com Arduino para ambientes indoor.</p>
+            <ul class="tags" aria-label="Tecnologias">
+              <li>Arduino</li><li>Eletrônica</li>
+            </ul>
+            <div class="actions">
+              <button class="btn btn-primary" type="button" data-abrir="dirigivel">Ver detalhes</button>
+              <a class="btn" href="pdf/arduino.pdf" target="_blank" rel="noopener">Relatório em PDF</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer>
-    © 2025 Raquel Massae
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Raquel Massae</span>
+      <div class="social">
+        <a class="btn" href="https://github.com/nakamuraquel" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/raquelmassae/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Modal de descrição -->
-  <div id="modalDescricao" class="modal">
-    <div class="modal-conteudo">
-      <div id="conteudoDescricao"></div>
-      <button class="btn-fechar" onclick="fecharModal()">✖</button>
+  <!-- ===================== JANELA DE DETALHES ===================== -->
+  <dialog class="details" id="detalhes" aria-labelledby="detalhes-titulo">
+    <div class="details-bar">
+      <span id="detalhes-semestre"></span>
+      <button class="close" type="button" data-fechar aria-label="Fechar">✕</button>
     </div>
-  </div>
+    <div class="details-body" id="detalhes-conteudo"></div>
+  </dialog>
 
-  <script>
-    function toggleDescricao(card) {
-      const descricao = card.querySelector('.descricao').innerHTML;
-      document.getElementById('conteudoDescricao').innerHTML = descricao;
-      document.getElementById('modalDescricao').style.display = 'flex';
-    }
+  <!-- Conteúdo completo de cada projeto -->
 
-    function fecharModal() {
-      document.getElementById('modalDescricao').style.display = 'none';
-    }
-  </script>
+  <template id="tpl-wizardvision" data-semestre="5DSM – 1º Sem. 2026">
+    <h2 id="detalhes-titulo">WizardVision</h2>
+    <p class="lead">Sistema de análise de desempenho físico de atletas de futebol com Inteligência Artificial.</p>
+    <p class="team">TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Correia, Bruna Regra, Leandro Barbosa e Maria Eduarda. Parceiro: Leandro Spinola.</p>
 
+    <h4>Sobre o projeto</h4>
+    <p>O futebol profissional usa dados de GPS e sensores para acompanhar o desempenho físico dos atletas. O WizardVision transforma esses dados brutos em informações úteis para a comissão técnica: a plataforma importa planilhas de telemetria, classifica automaticamente os jogadores em perfis (como explosivo ou alta resistência) com o algoritmo K-Means e detecta quedas de rendimento comparando cada atleta com o próprio histórico, usando Isolation Forest e Z-Score.</p>
+    <p>Quando uma queda é identificada, o sistema emite alertas em uma central de notificações. Os dashboards funcionam no celular, para consulta durante o treino, e os dados sensíveis são protegidos com autenticação JWT e criptografia AES-256-GCM. O projeto seguiu Scrum em três sprints e a arquitetura MVC, com front-end na Vercel e back-end e serviço de IA no Render.</p>
+
+    <h4>Minha contribuição</h4>
+    <div class="contrib">
+      <p>Atuei como desenvolvedora full stack. No front-end, criei as telas de login e cadastro (com Bruna Regra) e, junto com Leandro Barbosa, desenvolvi o grid de cards de atletas do dashboard, a barra de busca e os filtros por posição. No back-end, integrei as predições do microsserviço de IA à API Node.js (com Pollyana Roberta) e implementei a paginação no front-end e no back-end, reduzindo o volume de dados trafegados na rede.</p>
+    </div>
+
+    <h4>Tecnologias</h4>
+    <ul class="tags">
+      <li>React</li><li>Vite</li><li>React Router</li><li>Recharts</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL (Supabase)</li><li>Python</li><li>FastAPI</li><li>K-Means</li><li>Isolation Forest</li><li>JWT</li><li>Vercel</li><li>Render</li>
+    </ul>
+
+    <h4>Telas</h4>
+    <div class="gallery">
+      <figure class="wide"><img src="img/wizard1.jpg" alt="Dashboard com estatísticas do elenco, busca, filtros e cards de atletas" loading="lazy" /><figcaption>Dashboard com busca, filtros e grid de atletas</figcaption></figure>
+      <figure><img src="img/wizard2.jpg" alt="Tela de login do WizardVision" loading="lazy" /><figcaption>Tela de login</figcaption></figure>
+      <figure><img src="img/wizard4.jpg" alt="Versão mobile do dashboard com busca, filtros e cards" loading="lazy" /><figcaption>Versão mobile</figcaption></figure>
+      <figure class="wide"><img src="img/wizard3.jpg" alt="Final da lista de atletas com os botões de paginação" loading="lazy" /><figcaption>Paginação da lista de atletas</figcaption></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/TechWizards-Tech/wizard-vision" target="_blank" rel="noopener">Repositório no GitHub</a>
+    </div>
+  </template>
+
+  <template id="tpl-microscopios" data-semestre="4DSM – 2º Sem. 2025">
+    <h2 id="detalhes-titulo">Imagens de Microscópios Ópticos</h2>
+    <p class="lead">Sistema para coleta de imagens de microscópios ópticos e visualização mobile/web.</p>
+    <p class="team">TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.</p>
+
+    <h4>Sobre o projeto</h4>
+    <p>O sistema permite coletar imagens e vídeos de microscópios ópticos por meio de uma câmera digital acoplada, transmitir o fluxo de vídeo em tempo real via Wi‑Fi para um servidor em nuvem, e disponibilizar aplicativo mobile e interface web para visualização e armazenamento de snapshots. O projeto atende aos microscópios disponíveis na Fatec Jacareí e visa melhorar a experiência didática dos alunos.</p>
+
+    <h4>Minha contribuição</h4>
+    <div class="contrib">
+      <p>Trabalhei na criação do design da interface e navegação no Figma, contribuindo também com partes do front-end e auxiliando na documentação do projeto.</p>
+    </div>
+
+    <h4>Tecnologias</h4>
+    <ul class="tags">
+      <li>React</li><li>React Native</li><li>Python</li><li>Flask</li><li>Raspberry Pi</li><li>GitHub Actions</li><li>Figma</li>
+    </ul>
+
+    <h4>Imagens</h4>
+    <div class="gallery">
+      <figure><img src="img/micro1.jpg" alt="Imagem do projeto de microscópios 1" loading="lazy" /></figure>
+      <figure><img src="img/micro3.jpg" alt="Imagem do projeto de microscópios 2" loading="lazy" /></figure>
+      <figure><img src="img/micro2.jpg" alt="Imagem do projeto de microscópios 3" loading="lazy" /></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/TechWizards-Tech/TECH-WIZARDS-DSM-4" target="_blank" rel="noopener">Repositório no GitHub</a>
+    </div>
+  </template>
+
+  <template id="tpl-winds" data-semestre="3DSM – 1º Sem. 2025">
+    <h2 id="detalhes-titulo">Wizard Winds</h2>
+    <p class="lead">Plataforma web para monitoramento meteorológico do Lago de Furnas: visualização de dados e alertas em tempo real.</p>
+    <p class="team">HalfTech: Raquel Massae (eu), Pollyana Roberta e Felipe Corrêa.</p>
+
+    <h4>Sobre o projeto</h4>
+    <p>Desenvolvido no âmbito da disciplina de Gestão Ágil de Projetos de Software da FATEC Jacareí, este projeto aplica a Aprendizagem Baseada em Projetos (ABP) para criar uma plataforma web que disponibiliza dados meteorológicos das três estações instaladas no Lago de Furnas, região afetada por ventos extremos que comprometem a navegação e causam impactos socioeconômicos. A solução oferece visualização gráfica interativa, histórico em tabelas, comparação entre estações, exportação de dados em CSV e emissão de alertas de risco, em uma interface responsiva que democratiza o acesso a informações climáticas críticas para a população local.</p>
+
+    <h4>Minha contribuição</h4>
+    <div class="contrib">
+      <p>Atuei como Product Owner, garantindo alinhamento do produto com os requisitos. Também fui responsável pelo UX/UI, prototipação e fluxos de navegação no Figma, além de apoiar no desenvolvimento e documentação.</p>
+    </div>
+
+    <h4>Tecnologias</h4>
+    <ul class="tags">
+      <li>React</li><li>TypeScript</li><li>Node.js</li><li>MongoDB</li><li>Figma</li>
+    </ul>
+
+    <h4>Telas</h4>
+    <div class="gallery">
+      <figure><img src="img/winds1.png" alt="Tela do Wizard Winds 1" loading="lazy" /></figure>
+      <figure><img src="img/winds2.png" alt="Tela do Wizard Winds 2" loading="lazy" /></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/TechWizards-Tech/HALF-TECH---DSM-3" target="_blank" rel="noopener">Repositório no GitHub</a>
+    </div>
+  </template>
+
+  <template id="tpl-nutri" data-semestre="2DSM – 2º Sem. 2024">
+    <h2 id="detalhes-titulo">Contador de Calorias</h2>
+    <p class="lead">Plataforma web para cálculo nutricional e recomendação de dietas personalizadas.</p>
+    <p class="team">NutriWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.</p>
+
+    <h4>Sobre o projeto</h4>
+    <p>Aplicação web desenvolvida com metodologias ágeis (Scrum) para calcular calorias e sugerir dietas personalizadas, proposta aos alunos do 2º semestre de DSM da FATEC Jacareí. A plataforma permite monitorar a ingestão calórica e receber recomendações alimentares com base nos objetivos de cada usuário. O design foi prototipado no Figma, o versionamento feito com Git/GitHub e a documentação detalhada no README.</p>
+
+    <h4>Minha contribuição</h4>
+    <div class="contrib">
+      <p>Atuei na concepção da interface, prototipação e experiência de usuário no Figma, contribuí com parte do front-end e auxiliei na documentação e organização da apresentação da solução.</p>
+    </div>
+
+    <h4>Tecnologias</h4>
+    <ul class="tags">
+      <li>React</li><li>TypeScript</li><li>HTML</li><li>CSS</li><li>PostgreSQL</li><li>Figma</li>
+    </ul>
+
+    <h4>Telas</h4>
+    <div class="gallery">
+      <figure><img src="img/nutri1.png" alt="Tela do contador de calorias 1" loading="lazy" /></figure>
+      <figure><img src="img/nutri2.png" alt="Tela do contador de calorias 2" loading="lazy" /></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/TechWizards-Tech/DSM-2" target="_blank" rel="noopener">Repositório no GitHub</a>
+    </div>
+  </template>
+
+  <template id="tpl-scrum" data-semestre="1DSM – 1º Sem. 2024">
+    <h2 id="detalhes-titulo">Plataforma de Ensino Scrum</h2>
+    <p class="lead">Desenvolvimento de uma plataforma web para ensino do método Scrum.</p>
+    <p class="team">TechWizards: Raquel Massae (eu), Pollyana Roberta, Pamela Freitas, Felipe Corrêa, Bruna Regra, Leandro Barbosa e Maria Eduarda.</p>
+
+    <h4>Sobre o projeto</h4>
+    <p>Com o intuito de desenvolver uma aplicação web usando metodologias ágeis, a FATEC Jacareí propôs aos alunos do 1º semestre de Desenvolvimento de Software Multiplataforma (DSM) a criação de um curso online sobre o método ágil Scrum, um framework de colaboração em equipe amplamente utilizado.</p>
+
+    <h4>Minha contribuição</h4>
+    <div class="contrib">
+      <p>No projeto fui responsável pelo UX/UI, prototipação e estruturação da navegação no Figma, além de colaborar com a documentação e apoiar também no desenvolvimento, principalmente no front-end.</p>
+    </div>
+
+    <h4>Tecnologias</h4>
+    <ul class="tags">
+      <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Node.js</li><li>PostgreSQL</li><li>Figma</li>
+    </ul>
+
+    <h4>Telas</h4>
+    <div class="gallery">
+      <figure><img src="img/scrum1.png" alt="Tela da plataforma Scrum 1" loading="lazy" /></figure>
+      <figure><img src="img/scrum2.png" alt="Tela da plataforma Scrum 2" loading="lazy" /></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/TechWizards-Tech/DSM-1" target="_blank" rel="noopener">Repositório no GitHub</a>
+    </div>
+  </template>
+
+  <template id="tpl-cnn" data-semestre="Iniciação científica: IFSP e IEAV">
+    <h2 id="detalhes-titulo">Redes Neurais Convolucionais na detecção de objetos</h2>
+    <p class="lead">Redes neurais convolucionais na detecção de objetos com uso de imagens obtidas por drones.</p>
+    <p class="team">Orientação: Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.</p>
+
+    <h4>Sobre a pesquisa</h4>
+    <p>O principal objetivo deste projeto de Iniciação Científica foi apresentar uma proposta para o desenvolvimento de um protótipo de dirigível capaz de operar em ambiente indoor e carregar diferentes tipos de sensores e atuadores. Os resultados apresentados no relatório foram divididos em oito módulos: busca bibliográfica, levantamento dos componentes eletrônicos, orçamento, pesquisas individuais de cada componente, testes com o simulador Tinkercad, construção da câmara a gás, pesquisa de mercado do gás hélio e o desenho da gôndola.</p>
+    <p>Os resultados consistem no entendimento sobre a funcionalidade de todos os componentes necessários para a montagem do dirigível, por meio de pesquisas e testes; na estimativa de seus valores no mercado; e na montagem da câmara a gás, no desenho da gôndola e no levantamento do gás hélio.</p>
+
+    <h4>Imagens</h4>
+    <div class="gallery">
+      <figure><img src="img/profissional1.png" alt="Material da pesquisa 1" loading="lazy" /></figure>
+      <figure><img src="img/profissional2.png" alt="Material da pesquisa 2" loading="lazy" /></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="pdf/redes.pdf" target="_blank" rel="noopener">Abrir relatório em PDF</a>
+    </div>
+  </template>
+
+  <template id="tpl-dirigivel" data-semestre="Iniciação científica: CNPq/WASH">
+    <h2 id="detalhes-titulo">Estudo de um protótipo de dirigível</h2>
+    <p class="lead">Estudo de um protótipo de dirigível de baixo custo com uso de Arduino para emprego em ambientes indoor.</p>
+    <p class="team">Orientação: Ana Paula Abrantes Castro Shiguemori e Elcio Hideiti Shiguemori.</p>
+
+    <h4>Sobre a pesquisa</h4>
+    <p>O objetivo deste projeto de iniciação científica é estudar alternativas para o desenvolvimento de um protótipo de dirigível capaz de operar em ambiente indoor e carregar diferentes tipos de sensores e atuadores. Os resultados foram divididos em quatro módulos: busca bibliográfica, levantamento dos componentes eletrônicos, orçamento e pesquisas individuais de cada componente.</p>
+    <p>Os resultados consistem no entendimento aprofundado sobre a funcionalidade de todos os componentes necessários para a montagem do dirigível, por meio de pesquisas e testes, e na estimativa de seus valores no mercado.</p>
+
+    <h4>Imagens</h4>
+    <div class="gallery">
+      <figure><img src="img/profissional3.png" alt="Material da pesquisa 1" loading="lazy" /></figure>
+      <figure><img src="img/profissional4.png" alt="Material da pesquisa 2" loading="lazy" /></figure>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="pdf/arduino.pdf" target="_blank" rel="noopener">Abrir relatório em PDF</a>
+    </div>
+  </template>
+
+  <script src="js/projetos.js"></script>
 </body>
 
 </html>

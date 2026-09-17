@@ -1,76 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sobre Mim</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Raquel Massae, estudante de Desenvolvimento de Software Multiplataforma na Fatec Jacareí." />
+  <title>Sobre mim | Raquel Massae</title>
+  <link rel="preload" href="fonts/young-serif.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .sobre-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .texto-sobre {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .texto-sobre h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .texto-sobre p {
-      margin-bottom: 1rem;
-    }
-
-    .foto-perfil {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .foto-perfil img {
-      width: 500px;
-      height: 500px;
-      object-fit: cover;
-    }
-  </style>
+  <link rel="stylesheet" href="css/paginas.css" />
 </head>
+
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="navbar">
-    <a href="index.html">Sobre Mim</a>
-    <a href="projetos.html">Projetos</a>
-    <a href="outras-informacoes.html">Outras Informações</a>
-  </nav>
+  <!-- Filtro que dá as bordas irregulares de aquarela -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="aquarela" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="4" result="ruido" />
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="70" result="borda" />
+      <feGaussianBlur in="borda" stdDeviation="1.2" />
+    </filter>
+  </svg>
 
-  <main>
-    <section class="sobre-container">
-      <div class="texto-sobre">
-        <h1>Oie! Tudo bem?</h1>
-        <p>Meu nome é Raquel Massae, tenho 20 anos, sou formada em Técnico em Informática no IFSP e atualmente estou cursando o tecnólogo de Desenvolvimento de Software Multiplataforma na Fatec de Jacareí.</p>
-        <p>Sou estagiária na Embraer, atuo na academia de tecnologia: MyTechAcademy! </p>
-        <p>De acordo com as matérias estudadas, tanto no técnico como no tecnólogo, virei entusiasta das stacks: JavaScript, HTML, CSS, Figma, PostgreSQL.</p>
-        <p>Fiz parte do Coral OSIJJA, sou formada em Música e estudei violino por muitos anos. Além disso, amo usar meu tempo livre para pintar em aquarela.</p>
-        <p>Unindo as minhas duas paixões (Tecnologia + Arte), sonho em seguir carreira em Design :)</p>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Raquel Massae</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html" aria-current="page">Sobre mim</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="outras-informacoes.html">Outras informações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero wrap">
+      <div class="hero-text">
+        <h1>Oie! Eu sou a Raquel Massae.</h1>
+        <p class="intro">Tenho 21 anos, sou formada em Técnico em Informática pelo IFSP e atualmente curso o último semestre do tecnólogo em Desenvolvimento de Software Multiplataforma na Fatec de Jacareí.</p>
+        <p>Sou estagiária na Embraer, atuo como líder de solução na área de Arquitetura e Desenvolvimento de Sistemas.</p>
+        <p>Ao longo do técnico e do tecnólogo, virei entusiasta de JavaScript, React, Python e Figma. Gosto tanto de construir a lógica por trás do produto quanto de pensar em como ele se apresenta para as pessoas.</p>
+        <p>Fora do código, fiz parte do Coral OSIJJA, sou formada em Música e estudei violino por muitos anos. Também amo usar meu tempo livre para pintar em aquarela.</p>
+        <p>Tecnologia e arte sempre andaram juntas na minha história, e é essa combinação entre desenvolvimento e design que me move :)</p>
+
+        <div class="interests">
+          <h2>Áreas de interesse</h2>
+          <ul class="chips">
+            <li class="is-goal">Design gráfico e UX/UI</li>
+            <li>Desenvolvimento web</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Python</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="projetos.html">Ver meus projetos</a>
+          <a class="btn" href="https://github.com/nakamuraraquel" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/raquelmassae/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
-      <div class="foto-perfil">
-        <img src="img/foto-perfil.png" alt="Foto de Raquel" />
+
+      <div class="hero-photo">
+        <div class="bloom" aria-hidden="true"></div>
+        <img src="img/foto-perfil.png" alt="Foto de Raquel Massae cercada de flores de lavanda" width="1080" height="1080" />
       </div>
     </section>
   </main>
 
-  <footer>
-    © 2025 Raquel Massae
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Raquel Massae</span>
+      <div class="social">
+        <a class="btn" href="https://github.com/nakamuraraquel" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/raquelmassae/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
   </footer>
 
 </body>
+
 </html>

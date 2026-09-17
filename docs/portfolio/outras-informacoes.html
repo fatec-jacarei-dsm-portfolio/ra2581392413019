@@ -1,121 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Outras Informações</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Voluntariado, hobbies e interesses de Raquel Massae: TEDx Guararema, aquarela, violino, coral e design." />
+  <title>Outras informações | Raquel Massae</title>
+  <link rel="preload" href="fonts/young-serif.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .hobbies-section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
-
-    .hobby {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .hobby-text {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    .hobby-img {
-      flex: 1;
-      min-width: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hobby-img img {
-      width: 100%;
-      max-width: 500px; /* AUMENTADO de 400px para 500px */
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hobby-text h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="css/paginas.css" />
 </head>
+
 <body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="navbar">
-    <a href="index.html">Sobre Mim</a>
-    <a href="projetos.html">Projetos</a>
-    <a href="outras-informacoes.html">Outras Informações</a>
-  </nav>
+  <!-- Filtro que dá as bordas irregulares de aquarela -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <filter id="aquarela" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="4" seed="4" result="ruido" />
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="70" result="borda" />
+      <feGaussianBlur in="borda" stdDeviation="1.2" />
+    </filter>
+  </svg>
 
-  <main>
-    <section class="hobbies-section">
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Raquel Massae</a>
+      <nav class="nav" aria-label="Principal">
+        <a href="index.html">Sobre mim</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="outras-informacoes.html" aria-current="page">Outras informações</a>
+      </nav>
+    </div>
+  </header>
 
-      <div class="hobby">
+  <main id="conteudo">
+    <section class="page-head wrap">
+      <div class="bloom" aria-hidden="true"></div>
+      <h1>Além do código</h1>
+      <p>Voluntariado, música e arte fazem parte de quem eu sou e influenciam o jeito como penso design e interfaces.</p>
+    </section>
+
+    <section class="volunteer wrap" aria-labelledby="voluntariado-titulo">
+      <div class="volunteer-text">
+        <h2 id="voluntariado-titulo"><span aria-hidden="true">✦</span>Trabalho voluntário</h2>
+        <p class="volunteer-lead">Gosto de participar de iniciativas voluntárias: é uma forma de colocar o que eu sei a serviço de algo maior e de aprender com pessoas de áreas bem diferentes da minha.</p>
+        <div class="volunteer-cols">
+          <div>
+            <h3>TEDx Guararema - 2026</h3>
+            <p>Uma das experiências mais incríveis que já vivi foi fazer parte da equipe voluntária do TEDx Guararema. Ver de perto um evento que reúne pessoas para compartilhar ideias, e saber que ajudei a torná-lo possível, foi muito especial.</p>
+            <p>Foi também um exercício de trabalho em equipe fora da sala de aula, com prazos reais, imprevistos e muita colaboração. Levo dessa vivência a certeza de que ideias bem comunicadas têm o poder de aproximar pessoas.</p>
+          </div>
+          <ul class="roles">
+            <li><strong>Organização</strong>Planejamento e preparação do evento junto ao time, cuidando dos detalhes para que tudo acontecesse no dia.</li>
+            <li><strong>Arte</strong>Criação e apoio na identidade visual e nos materiais, onde pude unir meu lado artístico ao design.</li>
+            <li><strong>Apoio técnico</strong>Suporte à estrutura técnica durante o evento, para que as apresentações fluíssem sem problemas.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Fotos do TEDx: salve os arquivos em img/ com estes nomes (tedx1.jpg, tedx2.jpg, tedx3.jpg) -->
+      <div class="photo-row">
+        <figure class="photo-slot"><img src="img/tedx1.jpeg" alt="Raquel com a equipe voluntária do TEDx Guararema" loading="lazy" onerror="this.remove()" /><span class="slot-hint">img/tedx1.jpg</span></figure>
+        <figure class="photo-slot"><img src="img/tedx2.jpeg" alt="Bastidores do TEDx Guararema" loading="lazy" onerror="this.remove()" /><span class="slot-hint">img/tedx2.jpg</span></figure>
+        <figure class="photo-slot"><img src="img/tedx3.jpeg" alt="Palco do TEDx Guararema" loading="lazy" onerror="this.remove()" /><span class="slot-hint">img/tedx3.jpg</span></figure>
+      </div>
+    </section>
+
+    <section class="hobbies wrap" aria-label="Hobbies">
+
+      <article class="hobby">
         <div class="hobby-text">
-          <h3>𖹭 Aquarela</h3>
+          <h2><span aria-hidden="true">𖹭</span>Aquarela</h2>
           <p>Adoro pintar com aquarela durante meu tempo livre. É uma forma de expressão que une percepção e criatividade, e me ajuda a relaxar.</p>
-          <br>
           <p>Para mim, esse momento de pintura é também um exercício de paciência e presença, em que consigo me desconectar da correria do dia a dia.</p>
         </div>
         <div class="hobby-img">
-          <img src="img/aqua.png" alt="Aquarela" />
+          <img src="img/aqua.png" alt="Pintura em aquarela" width="500" height="250" loading="lazy" />
         </div>
-      </div>
+      </article>
 
-      <div class="hobby">
+      <article class="hobby">
         <div class="hobby-text">
-          <h3>♫ Violino</h3>
+          <h2><span aria-hidden="true">♫</span>Violino</h2>
           <p>Estudei violino por muitos anos e a música sempre foi uma grande paixão. A disciplina musical me ajudou a desenvolver foco e sensibilidade.</p>
-          <br>
           <p>Fiz parte do Instituto de Arte e Cultura Maestro Mauro Messias (Orquestra Sinfônica Jovem de Jacareí). Uma vez capacitada em tocar o instrumento, fui inserida na prática musical coletiva: Orquestra Sinfônica e Camerata de Cordas.</p>
         </div>
         <div class="hobby-img">
-          <img src="img/violin.png" alt="Violino" />
+          <img src="img/violin.png" alt="Violino" width="500" height="250" loading="lazy" />
         </div>
-      </div>
+      </article>
 
-      <div class="hobby">
+      <article class="hobby">
         <div class="hobby-text">
-          <h3>♪ Coral</h3>
+          <h2><span aria-hidden="true">♪</span>Coral</h2>
           <p>Participei do coral OSIJJA e tenho muito carinho por essa experiência. Trabalhar em grupo com harmonia musical é algo mágico.</p>
-          <br>
-          <p>No coral, as vozes são divididas em: soprano, contralto, tenor e baixo. Sou soprano. Nos ensaios semanais eram praticadas músicas de todos os gêneros musicais, desde composições sacras até suites nordestinas.</p>
+          <p>No coral, as vozes são divididas em soprano, contralto, tenor e baixo. Sou soprano. Nos ensaios semanais praticávamos músicas de todos os gêneros, desde composições sacras até suítes nordestinas.</p>
         </div>
         <div class="hobby-img">
-          <img src="img/coro.png" alt="Coral" />
+          <img src="img/coro.png" alt="Coral" width="500" height="250" loading="lazy" />
         </div>
-      </div>
+      </article>
 
-      <div class="hobby">
+      <article class="hobby">
         <div class="hobby-text">
-          <h3>☆ Design</h3>
+          <h2><span aria-hidden="true">☆</span>Design</h2>
           <p>Sou apaixonada por design gráfico, interfaces e tudo que envolve criar soluções visuais. Uso o Figma, Illustrator e Canva para dar vida às minhas ideias, sempre buscando unir estética, funcionalidade e uma boa experiência para o usuário.</p>
-          <br>
           <p>Estou em constante aprendizado e adoro transformar conceitos em projetos visuais que comuniquem de forma clara, criativa e impactante.</p>
         </div>
         <div class="hobby-img">
-          <img src="img/design.png" alt="Design" />
+          <img src="img/design.png" alt="Trabalho de design" width="500" height="250" loading="lazy" />
         </div>
-      </div>
+      </article>
 
     </section>
   </main>
 
-  <footer>
-    © 2025 Raquel Massae
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Raquel Massae</span>
+      <div class="social">
+        <a class="btn" href="https://github.com/nakamuraquel" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/raquelmassae/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
   </footer>
 
 </body>
+
 </html>
