@@ -12,3 +12,4 @@ Turma: 1º Semestre de 2024 <br>
 🔗 [Acesse o Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392413019/portfolio/index.html) <br>
 🎤 [Pitch de Apresentação (vídeo)](https://www.youtube.com/watch?v=dE0EtVhvZfU) <br>
 🎤 [Atualizações do Portfólio - 28/11/2025 (vídeo)](https://youtu.be/MJDTH39W34o) <br>
+🎤 [Atualizações do Portfólio - 18/09/2026 (vídeo)](https://youtu.be/WwixogZIugQ) <br>
